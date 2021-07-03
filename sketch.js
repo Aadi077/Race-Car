@@ -25,5 +25,19 @@ function draw(){
   if(gameState === 1){
     clear();
     game.play();
+
   }
+  if(gameState == 2){
+    game.update(2);
+    game.end();
+  }
+}
+
+function preload(){
+  car1img = loadImage ("images/car1.png");
+  car2img = loadImage ("images/car2.png");
+  car3img = loadImage ("images/car3.png");
+  car4img = loadImage ("images/car4.png");
+  track = loadImage ("images/track.jpg");
+  ground = loadImage ("images/ground.png");
 }
