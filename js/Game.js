@@ -42,7 +42,7 @@ class Game {
     textSize(30);
     text("Game Start", 120, 100)
     Player.getPlayerInfo();
-
+    player.getCarsAtEnd();
     if(allPlayers !== undefined){
 
       background (ground);
@@ -73,8 +73,18 @@ class Game {
 
     if (player.distance==displayHeight*5-200){
       gameState = 2;
+      player.rank+=1;
+      Player.updateCarsAtEnd(player.rank)
       player.distance = displayHeight*5-180;
       player.update();
+      this.update(2);
+      swal({
+        title:'Your Rank Is: '+player.rank,
+        text:"Congratulations!", 
+        imageUrl:'https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png',
+        imageSize:"100x100",
+        confirmButtonText:"Great!"
+      })
     }
 
     drawSprites();
@@ -82,5 +92,6 @@ class Game {
   }
   end(){
     console.log("Game Over");
+    console.log(player.rank);
   }
 }
